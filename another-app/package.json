@@ -1,18 +1,16 @@
 {
-  "name": "main-app",
+  "name": "another-app",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.js",
   "dependencies": {
-    "another-app": "../another-app",
-    "components-library": "../components-library",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test"
+    "build": "BABEL_ENV=production babel src -d dist",
+    "test": "react-scripts test",
   },
   "eslintConfig": {
     "extends": [
@@ -33,6 +31,16 @@
     ]
   },
   "devDependencies": {
-    "@craco/craco": "^6.1.1"
+    "@babel/cli": "^7.13.14"
+  },
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ]
   }
 }
